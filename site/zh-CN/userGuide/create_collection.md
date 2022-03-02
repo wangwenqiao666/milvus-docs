@@ -8,11 +8,11 @@ summary: Learn how to create a collection in Milvus.
 
 {{fragments/translation_needed.md}}
 
-This topic describes how to create a collection in Milvus.
+本主题介绍如何在Milvus中创建集合。
 
-A collection consists of one or more partitions. While creating a new collection, Milvus creates a default partition `_default`. See [Glossary - Collection](glossary.md#Collection) for more information.
+集合由一个或多个分区组成。在创建一个新集合时，Milvus创建了一个默认分区' _default '。更多信息请参见[Glossary .md#Collection](Glossary .md#Collection)。
 
-The following example builds a two-[shard](glossary.md#Sharding) collection named `book`, with a primary key field named `book_id`, an `INT64` scalar field named `word_count`, and a two-dimensional floating point vector field named `book_intro`. Real applications will likely use much higher dimensional vectors than the example.
+下面的例子构建了一个名为'book'的two-[shard](glossary.md#Sharding)集合，其中包含一个名为'book_id'的主键字段，一个名为'word_count'的'INT64'标量字段，以及一个名为' book_intro '的二维浮点向量字段。实际应用程序可能会使用比示例高得多的维向量。
 
 Milvus supports setting consistency level while creating a collection (only on PyMilvus currently). In this example, the consistency level of the collection is set as "strong", meaning Milvus will read the most updated data view at the exact time point when a search or query request comes. By default, a collection created without specifying the consistency level is set with bounded consistency level, under which Milvus reads a less updated data view (usually several seconds earlier) when a search or query request comes. Besides collection creation, you can also set the consistency level specifically for [search](search.md) or [query](query.md)  (only on PyMilvus currently). For other consistency level supported by Milvus, see [Guarantee Timestamp in Search Requests](https://github.com/milvus-io/milvus/blob/master/docs/developer_guides/how-guarantee-ts-works.md). 
 
